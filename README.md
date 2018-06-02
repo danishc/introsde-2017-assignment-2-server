@@ -1,25 +1,25 @@
 # introsde-2017-assignment-2-server
 
-Identification:
-NAME: Cheema Danish Asghar
-EMAIL: danishasghar.cheema@studenti.unitn.it
+## Identification:  
+NAME: Cheema Danish Asghar  
+EMAIL: danishasghar.cheema@studenti.unitn.it  
 
-Client Code Done by:
-NAME: 
-EMAIL:
+Client Code Done by:  
+NAME:   
+EMAIL:  
 
-Server heroku ULR: https://warm-anchorage-24393.herokuapp.com/ws/people?wsdl
-Server Git ripo: https://github.com/danishc/introsde-2017-assignment-3-server
+Server heroku Base ULR: https://introsde-asgn2-server.herokuapp.com 
+Server Git ripo: https://github.com/danishc/introsde-2017-assignment-2-server  
 
-Client Git riop:
+Client Git riop:  
 
 
-Project Requirements:
-Here i am implementing a server which is used by a University who wants to manage their student�s data and their relative activities, each student is consist of firstname, lastname and dateofbirth. on the other hand the students can have multiple activities and each activity is consist of name, type, description, place, evaluation and start date.
+## Project Requirements:
+Here i am implementing a server which is used by a University who wants to manage their student's data and their relative activities, each student is consist of firstname, lastname and dateofbirth. on the other hand the students can have multiple activities and each activity is consist of name, type, description, place, evaluation and start date.
 
 The project is consisting of different classes where Dao class is used to connect to database with the properties defined in persistence.xml. then there are Activity and person classes which contains the initialization of different parameters and and JPA and XML annotations in order to persist the data to database and move around the data via JAXB. also there is Data Initialization class which is execute once at the deploy time by the webservice implementation class. webservce classes define the interface and implementation of that interface which is available to the client side with the help SOAP and JAX-WS API.
 
-Implementation:
+## Implementation:  
 All the following methods are available via wsdl url as required in the assignment
 Method #1: list all the people in the database.
 Method #2: prints only the personal info of a person identified by given id.
@@ -36,8 +36,15 @@ Method #12 (Extra): return the best preference (or preferences if there are more
 
 NOTE: in the code form method 6 onwards i modify the name of the methods a bit to be more specific what the method does.
 
-Execution: 
-1: clone or download the code from server git repo.
-2: run following commands on command line 
--> $ mvn install
--> $ mvn exec:java -Dexec.mainClass="introsde.assignment3.soap.endpoint.PeoplePublisher"
+## Execution:  
+1: make sure you have git and heroku installed and signin on your system.
+1: clone or download the code from server git repo.  
+2: run following commands on command line   
+```
+git init
+git add .
+git commit -am "initial commit"
+heroku create NAME-OF-HEROKU-APP
+heroku addons:create heroku-postgresql
+git push heroku master
+```
