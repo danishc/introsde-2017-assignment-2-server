@@ -8,8 +8,8 @@ import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
-
 import introsde.rest.university.dao.LifeCoachDao;
+
 
 @Entity  // indicates that this class is an entity to persist in DB
 @Table(name="Person") // to whate table must be persisted

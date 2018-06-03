@@ -1,6 +1,7 @@
 package introsde.rest.university.resources;
 
 import introsde.rest.university.model.Activity;
+import introsde.rest.university.model.ActivityType;
 import introsde.rest.university.model.Person;
 
 import java.util.LinkedList;
@@ -114,16 +115,23 @@ import javax.ws.rs.core.UriInfo;
 	    @POST
 	    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON}) 
 	    @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-	    public List<Activity> addActivity(Activity value) {
-	    		System.out.println("adding activity.......");
+	    public List<Activity> addNewValue(ActivityType type) {
+	    		System.out.println("adding new ActivityType .......");
 	    		
 	    		Person p=Person.getPersonById(this.id);
 	    		if (p == null)
 	    			throw new NotFoundException("Get: Person with " + id + " not found");
 	    		
-	    		p.getActivities().add(value);
+	    		for(Activity act: p.getActivities()) {
+	    			if(act.getType().equals(type)) {
+	    				if(act.getOldTypes()==null) 
+	    					act.setOldTypes(new LinkedList<ActivityType>());
+	    				act.getOldTypes().add(act.getType());
+	    				act.setType(type);
+	    				Activity.updateActivity(act);
+	    			}
+	    		}
 	    		Person.updatePerson(p);
-	    		
 	    		
 	    		return getActByPIdAType("","");
 	    		

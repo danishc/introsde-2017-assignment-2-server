@@ -9,6 +9,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 import introsde.rest.university.dao.LifeCoachDao;
 
+
 @Entity  // indicates that this class is an entity to persist in DB
 @Table(name="Activity") // to whate table must be persisted
 @NamedQuery(name="Activity.findAll", query="SELECT p FROM Activity p")
@@ -29,7 +30,10 @@ public class Activity implements Serializable {
     private String place;
     @Column(name="type")
     private ActivityType type;
-    @Column(name="startdate")
+    @Column(name="oldTypes")
+    @ElementCollection
+    private List<ActivityType> oldTypes;
+	@Column(name="startdate")
     private String startdate;
     //@ManyToOne
 	//@JoinColumn(name="idPerson",referencedColumnName="idPerson")
@@ -67,6 +71,12 @@ public class Activity implements Serializable {
 	}
 	public void setType(ActivityType type) {
 		this.type = type;
+	}
+	public List<ActivityType> getOldTypes() {
+		return oldTypes;
+	}
+	public void setOldTypes(List<ActivityType> oldTypes) {
+		this.oldTypes = oldTypes;
 	}
 	public String getStartdate() {
 		return startdate;
