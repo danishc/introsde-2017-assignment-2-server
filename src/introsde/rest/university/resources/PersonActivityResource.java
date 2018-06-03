@@ -134,6 +134,7 @@ import javax.ws.rs.core.UriInfo;
 	    		}
 	    		Person.updatePerson(p);
 	    		
+	    		
 	    		return p.getActivities();
 	    				//getActByPIdAType("","");
 	    		
