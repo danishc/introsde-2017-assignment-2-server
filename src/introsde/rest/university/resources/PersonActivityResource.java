@@ -4,6 +4,7 @@ import introsde.rest.university.model.Activity;
 import introsde.rest.university.model.ActivityType;
 import introsde.rest.university.model.Person;
 
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -125,8 +126,8 @@ import javax.ws.rs.core.UriInfo;
 	    		for(Activity act: p.getActivities()) {
 	    			if(act.getType().equals(type)) {
 	    				if(act.getOldTypes()==null) 
-	    					act.setOldTypes(new LinkedList<ActivityType>());
-	    				act.getOldTypes().add(act.getType());
+	    					act.setOldTypes(new HashMap<String,ActivityType>());
+	    				act.getOldTypes().put(type.getName(), type);
 	    				act.setType(type);
 	    				Activity.updateActivity(act);
 	    			}

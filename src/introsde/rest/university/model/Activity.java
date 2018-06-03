@@ -2,6 +2,7 @@ package introsde.rest.university.model;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.Map;
 
 import javax.persistence.*;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -30,8 +31,8 @@ public class Activity implements Serializable {
     private String place;
     @Column(name="type")
     private ActivityType type;
-    @Column(name="oldTypes")
-    private List<ActivityType> oldTypes;
+    @ElementCollection
+    Map<String, ActivityType> oldTypes;
 	@Column(name="startdate")
     private String startdate;
     //@ManyToOne
@@ -71,10 +72,10 @@ public class Activity implements Serializable {
 	public void setType(ActivityType type) {
 		this.type = type;
 	}
-	public List<ActivityType> getOldTypes() {
+	public Map<String, ActivityType> getOldTypes() {
 		return oldTypes;
 	}
-	public void setOldTypes(List<ActivityType> oldTypes) {
+	public void setOldTypes(Map<String, ActivityType> oldTypes) {
 		this.oldTypes = oldTypes;
 	}
 	public String getStartdate() {
