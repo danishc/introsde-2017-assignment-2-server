@@ -116,25 +116,26 @@ import javax.ws.rs.core.UriInfo;
 	    @POST
 	    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON}) 
 	    @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-	    public List<Activity> addNewValue(ActivityType type) {
-	    		System.out.println("adding new ActivityType .......");
+	    public List<Activity> addNewValue(String value) {
+	    		System.out.println("adding new ActivityType ......." +type);
 	    		
 	    		Person p=Person.getPersonById(this.id);
 	    		if (p == null)
 	    			throw new NotFoundException("Get: Person with " + id + " not found");
 	    		
 	    		for(Activity act: p.getActivities()) {
-	    			if(act.getType().equals(type)) {
+	    			if(act.getType().name().equals(type)) {
 	    				if(act.getOldTypes()==null) 
 	    					act.setOldTypes(new TreeSet<String>());
-	    				act.getOldTypes().add(type.getName());
-	    				act.setType(type);
+	    				act.getOldTypes().add(act.getType().name());
+	    				act.setType(ActivityType.valueOf(value));
 	    				Activity.updateActivity(act);
 	    			}
 	    		}
 	    		Person.updatePerson(p);
 	    		
-	    		return getActByPIdAType("","");
+	    		return p.getActivities();
+	    				//getActByPIdAType("","");
 	    		
 	    }
 }
