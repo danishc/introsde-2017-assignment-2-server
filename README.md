@@ -32,6 +32,7 @@ All Getter's requests supports both XML and JSON.
 `Request #7: GET /person/{id}/{activity_type}` should return the list of activities for person identified by {id}.  
 `Request #8: GET /person/{id}/{activity_type}/{activity_id}` returns the activities of {activity_type} identified by {activity_id} for person identified by {id}.  
 `Request #9: POST /person/{id}/{activity_type}` saves a new value for the {activity_type} of person identified by {id} and archive the old value in the history.  
+
 `Request #10 (Extra): PUT /person/{id}/{activity_type}/{activity_id}` updates the value for the {activity_type} identified by {activity_id}, related to the person identified by {id}.  
 `Request #11 (Extra): GET /person/{id}/{activity_type}?before={beforeDate}&after={afterDate}` returns the activities of {activity_type} for person {id} which {start_date} is in the specified range of date.  
 
