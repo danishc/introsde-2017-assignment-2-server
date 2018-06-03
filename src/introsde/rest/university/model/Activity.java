@@ -30,7 +30,7 @@ public class Activity implements Serializable {
     private String place;
     @Column(name="type")
     private ActivityType type;
-    @ElementCollection
+    @Column(name="oldTypes")
     private List<ActivityType> oldTypes;
 	@Column(name="startdate")
     private String startdate;
