@@ -4,9 +4,9 @@ import introsde.rest.university.model.Activity;
 import introsde.rest.university.model.ActivityType;
 import introsde.rest.university.model.Person;
 
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.TreeSet;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DefaultValue;
@@ -126,8 +126,8 @@ import javax.ws.rs.core.UriInfo;
 	    		for(Activity act: p.getActivities()) {
 	    			if(act.getType().equals(type)) {
 	    				if(act.getOldTypes()==null) 
-	    					act.setOldTypes(new HashMap<String,ActivityType>());
-	    				act.getOldTypes().put(type.getName(), type);
+	    					act.setOldTypes(new TreeSet<String>());
+	    				act.getOldTypes().add(type.getName());
 	    				act.setType(type);
 	    				Activity.updateActivity(act);
 	    			}
