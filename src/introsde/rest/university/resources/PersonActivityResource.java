@@ -124,7 +124,7 @@ import javax.ws.rs.core.UriInfo;
 	    			throw new NotFoundException("Get: Person with " + id + " not found");
 	    		
 	    		for(Activity act: p.getActivities()) {
-	    			if(act.getType().name().equals(type)) {
+	    			if(act.getType().name().equals(this.type)) {
 	    				System.out.println("lllllllllllllll");
 	    				if(act.getOldTypes()==null) 
 	    					act.setOldTypes(new TreeSet<String>());
@@ -136,8 +136,8 @@ import javax.ws.rs.core.UriInfo;
 	    		Person.updatePerson(p);
 	    		
 	    		
-	    		return //p.getActivities();
-	    				getActByPIdAType("","");
+	    		return p.getActivities();
+	    				//getActByPIdAType("","");
 	    		
 	    }
 }
