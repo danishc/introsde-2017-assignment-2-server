@@ -117,14 +117,13 @@ import javax.ws.rs.core.UriInfo;
 	    @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
 	    public Person addNewValue(String value) {
 	    		System.out.println("adding new ActivityType ......." +value);
-	    		int flag=0;
+	    		
 	    		Person p=Person.getPersonById(this.id);
 	    		if (p == null)
 	    			throw new NotFoundException("Get: Person with " + id + " not found");
 	    		
 	    		for(Activity act: p.getActivities()) {
 	    			if(act.getType().name().equals(this.type)) {
-	    				flag=1;
 	    				if(act.getOldTypes()==null) 
 	    					act.setOldTypes(new TreeSet<String>());
 	    				act.getOldTypes().add(act.getType().name());
@@ -135,7 +134,6 @@ import javax.ws.rs.core.UriInfo;
 	    		Person.updatePerson(p);
 	    		
 	    		return p;
-	    				//getActByPIdAType("","");
 	    		
 	    }
 }
