@@ -117,7 +117,7 @@ import javax.ws.rs.core.UriInfo;
 	    @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON}) 
 	    @Consumes({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
 	    public List<Activity> addNewValue(String value) {
-	    		System.out.println("adding new ActivityType ......." +type);
+	    		System.out.println("adding new ActivityType ......." +value);
 	    		
 	    		Person p=Person.getPersonById(this.id);
 	    		if (p == null)
@@ -125,6 +125,7 @@ import javax.ws.rs.core.UriInfo;
 	    		
 	    		for(Activity act: p.getActivities()) {
 	    			if(act.getType().name().equals(type)) {
+	    				System.out.println("lllllllllllllll");
 	    				if(act.getOldTypes()==null) 
 	    					act.setOldTypes(new TreeSet<String>());
 	    				act.getOldTypes().add(act.getType().name());
