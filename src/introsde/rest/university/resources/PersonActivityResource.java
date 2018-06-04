@@ -134,9 +134,6 @@ import javax.ws.rs.core.UriInfo;
 	    		}
 	    		Person.updatePerson(p);
 	    		
-	    		if(flag==0) 
-	    			throw new NotFoundException("Activity Type"+this.type+" not found" );
-	    		
 	    		return p;
 	    				//getActByPIdAType("","");
 	    		
