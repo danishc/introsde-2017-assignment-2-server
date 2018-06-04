@@ -133,7 +133,6 @@ import javax.ws.rs.core.UriInfo;
 	    				Activity.updateActivity(act);
 	    			}
 	    		}
-	    		
 	    		Person.updatePerson(p);
 	    		
 	    		if(flag==0) 
