@@ -11,7 +11,7 @@ EMAIL: main.jan@unitn.it
 Server heroku Base ULR: https://introsde-asgn2-server.herokuapp.com  
 Server Git ripo: https://github.com/danishc/introsde-2017-assignment-2-server  
 
-Client Git riop:  
+Client Git riop: https://github.com/faheemjan5000/introsde-2017-assignment-2-client  
 
 
 ## Project Requirements:
